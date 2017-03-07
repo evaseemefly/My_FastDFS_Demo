@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
-using FastDFS.Client;
+//using FastDFS.Client;
 using FastDFS.Client.Common;
 using FastDFS.Client.Config;
 using FastDFS.Client.Storage;
@@ -42,8 +42,9 @@ namespace fastDFSDemo
             {
                 trackerIPs.Add(new IPEndPoint(IPAddress.Parse(onetracker), 22122));
             }
-            ConnectionManager.Initialize(trackerIPs);
-            storageNode = FastDFSClient.GetStorageNode("group1");
+
+            FastDFS.Client.ConnectionManager.Initialize(trackerIPs);
+            storageNode = FastDFS.Client.FastDFSClient.GetStorageNode("group1");
             label3.Text = "连接成功";
         }
         /// <summary>
@@ -71,11 +72,11 @@ namespace fastDFSDemo
                 textBox1.Text = fName;
              
                 //主文件
-                string fileName = FastDFSClient.UploadFile(storageNode, content, "png");
-                var info = FastDFSClient.GetFileInfo(storageNode, fileName);
+                string fileName = FastDFS.Client.FastDFSClient.UploadFile(storageNode, content, "png");
+                var info = FastDFS.Client.FastDFSClient.GetFileInfo(storageNode, fileName);
                 //从文件
-                var slaveFileName = FastDFSClient.UploadSlaveFile("group1", content, fileName, "_120x120", "png");
-                var slaveInfo = FastDFSClient.GetFileInfo(storageNode, slaveFileName);
+                var slaveFileName = FastDFS.Client.FastDFSClient.UploadSlaveFile("group1", content, fileName, "_120x120", "png");
+                var slaveInfo = FastDFS.Client.FastDFSClient.GetFileInfo(storageNode, slaveFileName);
                 listBox1.Items.Add(string.Format("主文件：http://{0}:8080/group1/{1}", trackerIPs[0].Address, fileName));
                 listBox1.Items.Add(string.Format("主文件大小：{0}KB,创建时间：{1}", info.FileSize, info.CreateTime));
                 listBox1.Items.Add(string.Format("从文件：http://{0}:8080/group1/{1}", trackerIPs[0].Address, slaveFileName));
@@ -98,7 +99,7 @@ namespace fastDFSDemo
         {
             //  byte[] buffer = FastDFSClient.DownloadFile(node, fileName, 0L, 0L);
             targetPath = "d:\\" + Path.GetFileName(fileName);
-            FDFSFileInfo fileInfo = FastDFSClient.GetFileInfo(storageNode, fileName);
+            FDFSFileInfo fileInfo = FastDFS.Client.FastDFSClient.GetFileInfo(storageNode, fileName);
             if (fileInfo.FileSize >= 1024)//如果文件大小大于1KB  分次写入
             {
                 FileStream fs = new FileStream(targetPath, FileMode.OpenOrCreate, FileAccess.Write);
@@ -107,7 +108,7 @@ namespace fastDFSDemo
                 while (len > 0)
                 {
                     byte[] buffer = new byte[len];
-                    buffer = FastDFSClient.DownloadFile(storageNode, fileName, offset, len);
+                    buffer = FastDFS.Client.FastDFSClient.DownloadFile(storageNode, fileName, offset, len);
                     fs.Write(buffer, 0, int.Parse(len.ToString()));
                     fs.Flush();
                     // setrichtext(name_ + "已经下载：" + (offset / fileInfo.FileSize) + "%");
@@ -120,7 +121,7 @@ namespace fastDFSDemo
             else//如果文件大小小小于1KB  直接写入文件
             {
                 byte[] buffer = new byte[fileInfo.FileSize];
-                buffer = FastDFSClient.DownloadFile(storageNode, fileName);
+                buffer = FastDFS.Client.FastDFSClient.DownloadFile(storageNode, fileName);
                 FileStream fs = new FileStream(targetPath, FileMode.OpenOrCreate, FileAccess.Write);
                 fs.Write(buffer, 0, buffer.Length);
                 fs.Flush();

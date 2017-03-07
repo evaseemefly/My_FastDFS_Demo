@@ -8,3 +8,13 @@ E:\test\solution\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.Properties.Resour
 E:\test\solution\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.csproj.GenerateResource.Cache
 E:\test\solution\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.exe
 E:\test\solution\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.pdb
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\bin\Debug\fastDFSDemo.exe.config
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\bin\Debug\fastDFSDemo.exe
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\bin\Debug\fastDFSDemo.pdb
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\bin\Debug\FastDFS.Client.dll
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.csprojResolveAssemblyReference.cache
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.FastDF.resources
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.Properties.Resources.resources
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.csproj.GenerateResource.Cache
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.exe
+E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.pdb

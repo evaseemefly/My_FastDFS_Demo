@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastDFS.Client, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastDFS.1.0.4\lib\FastDFS.Client.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\FastDFS.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
