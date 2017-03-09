@@ -2,6 +2,8 @@
 using System.IO;
 using FastDFS.Client.Common;
 using FastDFS.Client.Config;
+using System.Configuration;
+using Common.Config.Fdfs;
 
 namespace FastDFS.Client.Demo
 {
@@ -9,7 +11,11 @@ namespace FastDFS.Client.Demo
     {
         static void Main(string[] args)
         {
+            //
             var config = FastDfsManager.GetConfigSection();
+
+            //测试第二种方式
+            TrackerSection trackersSection = ConfigurationManager.GetSection("TrackerSection") as TrackerSection;
 
             StorageNode storageNode = null;
 

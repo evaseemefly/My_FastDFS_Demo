@@ -17,5 +17,7 @@ namespace FastDFS.Client.Config
 
         [XmlElement]
         public List<FastDfsServer> FastDfsServer { get; set; }
+
+        
     }
 }

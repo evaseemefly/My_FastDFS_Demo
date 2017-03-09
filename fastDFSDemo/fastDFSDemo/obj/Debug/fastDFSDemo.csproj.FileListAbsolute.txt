@@ -18,3 +18,4 @@ E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Deb
 E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.csproj.GenerateResource.Cache
 E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.exe
 E:\03协同开发\99学习\12FastDfs\fastDFSDemo\fastDFSDemo\fastDFSDemo\obj\Debug\fastDFSDemo.pdb
+E:\01开发\My_FastDFS_Demo\fastDFSDemo\fastDFSDemo\bin\Debug\fastDFSDemo.exe.config
