@@ -12,10 +12,18 @@ namespace FastDFS.Client.Config
             FastDfsServer = new List<FastDfsServer>();
         }
 
+        /// <summary>
+        /// fdfs 群组名称
+        /// </summary>
         [XmlAttribute]
         public string GroupName { get; set; }
 
+        /// <summary>
+        /// fdfs服务集合
+        /// </summary>
         [XmlElement]
         public List<FastDfsServer> FastDfsServer { get; set; }
+
+        
     }
 }
