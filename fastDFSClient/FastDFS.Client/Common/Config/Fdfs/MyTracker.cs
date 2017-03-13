@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Common.Config.Fdfs
 {
-    public class Tracker : ConfigurationElement
+    public class MyTracker : ConfigurationElement
     {
         /// <summary>
         /// 配置后，遇到未知特性不会报错

@@ -4,6 +4,8 @@ using FastDFS.Client.Common;
 using FastDFS.Client.Config;
 using System.Configuration;
 using Common.Config.Fdfs;
+using Upload;
+using Model.FdfsParameters;
 
 namespace FastDFS.Client.Demo
 {
@@ -15,7 +17,11 @@ namespace FastDFS.Client.Demo
             var config = FastDfsManager.GetConfigSection();
 
             //测试第二种方式
-            TrackerSection trackersSection = ConfigurationManager.GetSection("TrackerSection") as TrackerSection;
+            //TrackerSection trackersSection = ConfigurationManager.GetSection("TrackerSection") as TrackerSection;
+
+            //测试第三种方式
+            //MyFastDFSClient.Test();
+
 
             StorageNode storageNode = null;
 
@@ -38,17 +44,28 @@ namespace FastDFS.Client.Demo
                         break;
 
                     case "2":
-                        storageNode = FastDFSClient.GetStorageNode(config.GroupName);
+                        storageNode = MyFastDFSClient.GetStorageNode(config.GroupName);
                         Console.WriteLine(storageNode.EndPoint);
                         break;
 
                     case "3":
-                        fileName = FastDFSClient.UploadFile(storageNode, File.ReadAllBytes("test.jpg"), "jpg");
+                       //暂时注释掉
+                        // fileName = MyFastDFSClient.UploadFile(storageNode, File.ReadAllBytes("test.jpg"), "jpg");
+
+                        IUpload uploadFile = UploadFactory.Instance;
+                        var fileUploadPara = new FileUploadParameter()
+                        {
+                             FileName="test.jpg",
+                             Content= File.ReadAllBytes("test.jpg"),
+                             
+
+                        };
+                        uploadFile.UploadFile(fileUploadPara);
                         Console.WriteLine(fileName);
                         break;
 
                     case "4":
-                        FastDFSClient.RemoveFile(config.GroupName, fileName);
+                        MyFastDFSClient.RemoveFile(config.GroupName, fileName);
                         break;
                 }
 

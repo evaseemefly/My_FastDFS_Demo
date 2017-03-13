@@ -28,7 +28,11 @@ namespace FastDFS.Client
         #endregion
 
         #region 公共静态方法
-
+        /// <summary>
+        /// 初始化trackers
+        /// </summary>
+        /// <param name="trackers"></param>
+        /// <returns></returns>
         public static bool Initialize(List<IPEndPoint> trackers)
         {
             foreach (var point in trackers)

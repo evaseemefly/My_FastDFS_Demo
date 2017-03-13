@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\Fdfs\Tracker.cs" />
+    <Compile Include="Config\Fdfs\MyTracker.cs" />
     <Compile Include="Config\Fdfs\Trackers.cs" />
     <Compile Include="Config\Fdfs\TrackerSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

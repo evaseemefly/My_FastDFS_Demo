@@ -11,12 +11,12 @@ namespace Common.Config.Fdfs
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new Tracker();
+            return new MyTracker();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((Tracker)element).Host;
+            return ((MyTracker)element).Host;
         }
     }
 }
