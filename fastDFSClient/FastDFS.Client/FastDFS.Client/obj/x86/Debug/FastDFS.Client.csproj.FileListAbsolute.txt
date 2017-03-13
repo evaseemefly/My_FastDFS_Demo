@@ -1,5 +1,0 @@
-E:\03协同开发\99学习\12FastDfs\My_FastDFS_Demo\fastDFSClient\FastDFS.Client\FastDFS.Client\bin\Debug\FastDFS.Client.dll
-E:\03协同开发\99学习\12FastDfs\My_FastDFS_Demo\fastDFSClient\FastDFS.Client\FastDFS.Client\bin\Debug\FastDFS.Client.pdb
-E:\03协同开发\99学习\12FastDfs\My_FastDFS_Demo\fastDFSClient\FastDFS.Client\FastDFS.Client\obj\x86\Debug\FastDFS.Client.csprojResolveAssemblyReference.cache
-E:\03协同开发\99学习\12FastDfs\My_FastDFS_Demo\fastDFSClient\FastDFS.Client\FastDFS.Client\obj\x86\Debug\FastDFS.Client.dll
-E:\03协同开发\99学习\12FastDfs\My_FastDFS_Demo\fastDFSClient\FastDFS.Client\FastDFS.Client\obj\x86\Debug\FastDFS.Client.pdb
