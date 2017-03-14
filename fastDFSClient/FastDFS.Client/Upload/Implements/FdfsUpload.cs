@@ -12,32 +12,37 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using FastDFS.Client.Config;
 using System.Net;
+using BaseFdfs;
 
 namespace Upload.Implements
 {
-    public class FdfsUpload : IUpload
+    public class FdfsUpload :BaseFdfs.BaseFdfs, IUpload
     {
         /// <summary>
         /// 文件上传的缓冲区大小
         /// </summary>
         const int SIZE = 1024 * 1024;
-        /// <summary>
-        /// 目录名,需要提前在fastDFS上建立
-        /// </summary>
-        public string DFSGroupName { get; private set; }
-        /// <summary>
-        /// FastDFS结点
-        /// </summary>
-        public StorageNode Node { get; private set; }
 
-        /// <summary>
-        /// fastDFS服务器地址列表
-        /// </summary>
-        public List<IPEndPoint> trackerIPs = new List<IPEndPoint>();
-        /// <summary>
-        /// 服务器地址
-        /// </summary>
-        public string Host { get; private set; }
+        #region 封装至父类baseFdfs中——已注释
+        ///// <summary>
+        ///// 目录名,需要提前在fastDFS上建立
+        ///// </summary>
+        //public string DFSGroupName { get; private set; }
+        ///// <summary>
+        ///// FastDFS结点
+        ///// </summary>
+        //public StorageNode Node { get; private set; }
+
+        ///// <summary>
+        ///// fastDFS服务器地址列表
+        ///// </summary>
+        //public List<IPEndPoint> trackerIPs = new List<IPEndPoint>();
+        ///// <summary>
+        ///// 服务器地址
+        ///// </summary>
+        //public string Host { get; private set; }
+        #endregion
+
         /// <summary>
         /// 失败次数
         /// </summary>
@@ -49,41 +54,45 @@ namespace Upload.Implements
 
         public FdfsUpload()
         {
-            InitStorageNode();
+            base.InitStorageNode();
             MaxFaildCount = 3;
         }
 
+        #region 初始化节点——已封装至父类中——暂时注释掉
+        ///// <summary>
+        ///// 初始化节点
+        ///// </summary>
+        //private void InitStorageNode()
+        //{
+        //    //读取配置文件中的fdfs配置节
+        //    var config = FastDfsManager.GetConfigSection();
+        //    try
+        //    {
+        //        //注意需要先初始化tracker
+        //        ConnectionManager.InitializeForConfigSection(config);
+        //        base.DFSGroupName = config.GroupName;
+        //        base.Host = config.FastDfsServer.FirstOrDefault().IpAddress;
+        //        //根据指定群组名称获取存储节点
+        //        Node = FastDFSClient.GetStorageNode(config.GroupName);
+        //        foreach (var item in config.FastDfsServer)
+        //        {
+        //            trackerIPs.Add(new IPEndPoint(IPAddress.Parse(item.IpAddress), item.Port));
+        //        }
+        //        //初始化
+        //        ConnectionManager.Initialize(trackerIPs);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Logger.LoggerFactory.Instance.Logger_Error(ex);
+        //    }
+
+        //    //Node = FastDFSClient.GetStorageNode(DFSGroupName);
+        //    //Host = Node.EndPoint.Address.ToString();
+        //}
+        #endregion
+
         #region 上传时需要用到的方法
-        /// <summary>
-        /// 初始化节点
-        /// </summary>
-        private void InitStorageNode()
-        {
-            //读取配置文件中的fdfs配置节
-            var config = FastDfsManager.GetConfigSection();
-            try
-            {
-                //注意需要先初始化tracker
-                ConnectionManager.InitializeForConfigSection(config);
-                this.DFSGroupName = config.GroupName;
-                this.Host = config.FastDfsServer.FirstOrDefault().IpAddress;
-                //根据指定群组名称获取存储节点
-                Node = FastDFSClient.GetStorageNode(config.GroupName);
-                foreach (var item in config.FastDfsServer)
-                {
-                    trackerIPs.Add(new IPEndPoint(IPAddress.Parse(item.IpAddress), item.Port));
-                }
-                //初始化
-                ConnectionManager.Initialize(trackerIPs);
-            }
-            catch (Exception ex)
-            {
-                //Logger.LoggerFactory.Instance.Logger_Error(ex);
-            }
-            
-            //Node = FastDFSClient.GetStorageNode(DFSGroupName);
-            //Host = Node.EndPoint.Address.ToString();
-        }
+
 
         /// <summary>
         /// 上传小文件
@@ -252,7 +261,7 @@ namespace Upload.Implements
             {
                 //return FastDFSClient.UploadFile(Node, content, ext);
                 string fileName = MultipartUpload(param);
-                result.FilePath = fileName;
+                result.FullFilePath = fileName;
             }
             catch (Exception ex)
             {
@@ -283,7 +292,7 @@ namespace Upload.Implements
                     return new ImageUploadResult
                     {
                         ErrorMessage = "图片大小超过指定大小" + param.MaxSize / (1024 * 1024) + "M，请重新选择",
-                        FilePath = shortName
+                        FullFilePath = shortName
                     };
                 }
                 else
@@ -303,13 +312,16 @@ namespace Upload.Implements
                 return new ImageUploadResult
                 {
                     ErrorMessage = "文件类型不匹配",
-                    FilePath = shortName
+                    FullFilePath = shortName
                 };
 
             }
             return new ImageUploadResult
             {
-                FilePath = CompleteUpload(param.Stream, shortName),
+                FullFilePath = CompleteUpload(param.Stream, shortName),
+                FileName = shortName,
+                GroupName = Node.GroupName,
+                Url = Host
             };
         }
         #endregion

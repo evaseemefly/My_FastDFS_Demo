@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Upload;
 
 namespace Download
 {
@@ -19,7 +18,7 @@ namespace Download
             {
                 lock (lockObj)
                 {
-                    Instance = new Upload.Implements.FdfsUpload();
+                    Instance = new Download.Implements.FdfsDownload();
                 }
             }
         }

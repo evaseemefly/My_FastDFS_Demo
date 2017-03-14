@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79DC8ED9-C990-46CF-9C9F-32BDD3A0AE92}</ProjectGuid>
+    <ProjectGuid>{061AAC75-893F-4305-9051-81673A15AB05}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Upload</RootNamespace>
-    <AssemblyName>Upload</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>BaseFdfs</RootNamespace>
+    <AssemblyName>BaseFdfs</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,23 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implements\FdfsUpload.cs" />
-    <Compile Include="IUpload.cs" />
-    <Compile Include="UploadFactory.cs" />
+    <Compile Include="BaseFdfs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaseFdfs\BaseFdfs.csproj">
-      <Project>{061aac75-893f-4305-9051-81673a15ab05}</Project>
-      <Name>BaseFdfs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FastDFS.Client\FastDFS.Client.csproj">
       <Project>{27718a9c-7092-4310-993d-2876d5432f9c}</Project>
       <Name>FastDFS.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{9a6e5eca-c3dc-4776-b664-b39c884a92f1}</Project>
-      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

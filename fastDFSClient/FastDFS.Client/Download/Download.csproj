@@ -47,6 +47,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseFdfs\BaseFdfs.csproj">
+      <Project>{061aac75-893f-4305-9051-81673a15ab05}</Project>
+      <Name>BaseFdfs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FastDFS.Client\FastDFS.Client.csproj">
+      <Project>{27718a9c-7092-4310-993d-2876d5432f9c}</Project>
+      <Name>FastDFS.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{9a6e5eca-c3dc-4776-b664-b39c884a92f1}</Project>
       <Name>Model</Name>

@@ -57,6 +57,10 @@
       <Project>{a6863fdf-1839-42e3-aa51-3e42c1eaf791}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Download\Download.csproj">
+      <Project>{d2a082d3-b99d-445f-8d0d-6432e464756e}</Project>
+      <Name>Download</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FastDFS.Client\FastDFS.Client.csproj">
       <Project>{27718a9c-7092-4310-993d-2876d5432f9c}</Project>
       <Name>FastDFS.Client</Name>

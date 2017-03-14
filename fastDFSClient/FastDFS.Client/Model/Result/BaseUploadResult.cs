@@ -12,9 +12,29 @@ namespace Model.Result
     public class BaseUploadResult
     {
         /// <summary>
-        /// 返回文件地址
+        /// 返回文件的全地址
+        /// eg：http://192.168.0.113/group1/M00/00/00/wKgAcVjHVVKAGNhPAAInn_BrY3k026.jpg
         /// </summary>
-        public string FilePath { get; set; }
+        public string FullFilePath { get; set; }
+
+        /// <summary>
+        /// 文件名称
+        /// eg：M00/00/00/wKgAcVjHVVKAGNhPAAInn_BrY3k026.jpg
+        /// </summary>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// 群组名称
+        /// eg：group1
+        /// </summary>
+        public string GroupName { get; set; }
+
+        /// <summary>
+        /// 服务器地址
+        /// eg：192.168.0.113
+        /// </summary>
+        public string Url { get; set; }
+
         /// <summary>
         /// 错误消息列表
         /// </summary>

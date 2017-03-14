@@ -5,6 +5,7 @@ using FastDFS.Client.Config;
 using System.Configuration;
 using Common.Config.Fdfs;
 using Upload;
+using Download;
 using Model.FdfsParameters;
 
 namespace FastDFS.Client.Demo
@@ -45,9 +46,36 @@ namespace FastDFS.Client.Demo
             //2 测试上传图片
             //**注意，maxSize以后改为读取配置文件
             var fileUploadImage = new ImageUploadParameter(streamUpload, "test.jpg",null, 2*1024*1024) { };
-            var result= uploadFile.UploadImage(fileUploadImage);
-            Console.WriteLine("上传成功，上传图片为{0}",result.FilePath);
-
+            //FilePath:http://192.168.0.113/group1/M00/00/00/wKgAcVjHVVKAGNhPAAInn_BrY3k026.jpg
+            var result = uploadFile.UploadImage(fileUploadImage);
+            Console.WriteLine("上传成功，上传图片为{0}",result.FullFilePath);
+            Console.WriteLine("*******************************");
+            Console.WriteLine("1.直接获取刚才上传的文件的名称");
+            Console.WriteLine("2.手动收入文件名称");
+            Console.Write("请输入命令：");
+            var index = Console.ReadLine();
+            string filename_console = null;
+            switch (index)
+            {
+                case "1":
+                    filename_console = result.FileName;
+                    Console.WriteLine("刚才上传的文件名为：{0}",filename_console);
+                    break;
+                case "2":
+                    Console.WriteLine("请输入命令：");
+                    Console.WriteLine("请输入文件路径准备下载指定文件");
+                    filename_console = Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("输入有误！");
+                    return;
+            }           
+            
+            IDownload downloadFile = DownloadFactory.Instance;
+            Console.WriteLine("*******************************");
+            var result_download= downloadFile.GetTargetFile(new FileDownParameter() { FileName = filename_console });
+            Console.WriteLine("下载成功");
+            Console.ReadLine();
             do
             {
                 Console.WriteLine("\r\n1.Init");
