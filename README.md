@@ -1,5 +1,5 @@
 # My_FastDFS_Demo
-casablanca的FastDfs的操作封装类 
+evaseemefly的FastDfs的操作封装类 
 -------
 
 注意fastDFSClient文件夹中为项目所在位置<br>
