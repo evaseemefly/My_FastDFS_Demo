@@ -1,10 +1,10 @@
 # My_FastDFS_Demo
 evaseemefly的FastDfs的操作封装类 
 -------
-
 注意fastDFSClient文件夹中为项目所在位置<br>
+FastDFS.Client代码参考https://github.com/smartbooks/FastDFS.Client<br>在部分上传代码中加入了回调函数<br>
 本demo主要配合短信系统使用<br>
-https://github.com/evaseemefly/PMS++<br>
+https://github.com/evaseemefly/PMS<br>
 本demo中FastDFS.Client.Demo为程序入口，测试代码见其中<br>
 02Service为业务层（之后会再修改）<br>
 其中包含上传与下载操作类，以及他们的父类BaseFdfs。<br>
