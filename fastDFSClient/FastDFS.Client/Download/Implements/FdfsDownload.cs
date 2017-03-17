@@ -19,9 +19,10 @@ namespace Download.Implements
             base.InitStorageNode();
         }
 
-        
+
         /// <summary>
         /// 下载指定名称的文件
+        /// eg：FileName：M00/00/00/wKgAcVjI-NeAa0HyAAInn_BrY3k084.jpg
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
@@ -31,6 +32,14 @@ namespace Download.Implements
             string errorMsg = string.Empty;
             try
             {
+                //其中的base.Node为：
+
+                /*
+                 * eg:
+                 * EndPoint: 192.168.0.113:23000
+                 * GroupName:group1
+                 * StorePathIndex:0
+                 */
                 content = FastDFSClient.DownloadFile(base.Node, param.FileName);
             }
             catch (Exception ex)

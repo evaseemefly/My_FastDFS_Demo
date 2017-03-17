@@ -16,14 +16,10 @@ namespace FastDFS.Client.Demo
         {
             //
             var config = FastDfsManager.GetConfigSection();
-
             //测试第二种方式
             //TrackerSection trackersSection = ConfigurationManager.GetSection("TrackerSection") as TrackerSection;
-
             //测试第三种方式
-            //MyFastDFSClient.Test();
-
-            
+            //MyFastDFSClient.Test();           
 
             StorageNode storageNode = null;
 
